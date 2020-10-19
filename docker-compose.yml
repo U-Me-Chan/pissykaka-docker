@@ -1,0 +1,38 @@
+version: '2'
+services:
+  db:
+    image: mysql:latest
+    container_name: pissykaka-mysql
+    restart: always
+    env_file:
+      - ".env"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - "./data/db:/var/lib/mysql"
+    command: --default-authentication-plugin=mysql_native_password
+  php:
+    build: images/php
+    container_name: pissykaka-php
+    restart: always
+    volumes:
+      - "./conf/php:/usr/local/etc/php/conf.d"
+      - "./public:/var/www/html"
+    depends_on:
+        - db
+  nginx:
+    image: nginx:alpine
+    container_name: pissykaka-nginx
+    volumes:
+      - "./conf/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
+      - "./public:/var/www/html"
+      - "./logs:/var/log/nginx"
+    command: /bin/sh -c "nginx -g 'daemon off;'"
+    restart: always
+    depends_on:
+      - php
+    ports:
+      - "8888:80"
