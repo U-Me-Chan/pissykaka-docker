@@ -1,4 +1,4 @@
-data/db/*
+data/*
 logs/*
 .env
-public/*
+public
