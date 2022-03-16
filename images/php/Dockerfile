@@ -1,4 +1,4 @@
-FROM library/php:7.4-fpm
+FROM library/php:8.0-fpm
 RUN docker-php-ext-install pdo_mysql
 RUN apt update -yyq && apt install xz-utils zip unzip libzip-dev --no-install-recommends -yyq
 RUN docker-php-ext-install zip
