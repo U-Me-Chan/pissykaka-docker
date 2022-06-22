@@ -29,7 +29,7 @@
 
 ### 1.1 Вариант 1: клонирование в `./public`:
 
-    git clone https://github.com/ridouchire/pissykaka.git pubilc
+    git clone https://github.com/U-Me-Chan/pissykaka.git pubilc
 
 ### 1.2 Вариант 2: символьная ссылка `./public -> ../pissykaka`
 
