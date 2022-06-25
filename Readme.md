@@ -1,5 +1,5 @@
 Бекенд pissykaka может быть найден
-[здесь](https://github.com/ridouchire/pissykaka).
+[здесь](https://github.com/U-Me-Chan/pissykaka).
 
 Спасибо @ridouchire за то, что подготовил конфиги, докер-композы и хотя бы один
 раз показал мне как это делается.
